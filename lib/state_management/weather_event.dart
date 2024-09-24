@@ -7,3 +7,5 @@ class FetchWeather extends WeatherEvent {
 
   FetchWeather(this.latitude, this.longitude);
 }
+
+class LoadSavedWeather extends WeatherEvent {}

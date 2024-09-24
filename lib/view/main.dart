@@ -4,8 +4,11 @@ import 'package:weather_app/network_manager/networking.dart';
 import 'package:weather_app/state_management/weather_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/state_management/weather_event.dart';
+//import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+
+void main() async {
+  //await Hive.initFlutter();
   runApp(const MyApp());
 }
 
@@ -28,6 +31,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
 class WeatherHomePage extends StatefulWidget {
   const WeatherHomePage({super.key});
 
@@ -36,12 +40,15 @@ class WeatherHomePage extends StatefulWidget {
 }
 
 class _WeatherHomePageState extends State<WeatherHomePage> {
-
+//late Box<Welcome> hive;
   @override
   void initState() {
     super.initState();
-   context.read<WeatherBloc>().add(FetchWeather(28.6139, 77.2090));
+     //hive = Hive.box<Welcome>('hive');
+     //context.read<WeatherBloc>().add(LoadSavedWeather());
+     context.read<WeatherBloc>().add(FetchWeather(28.6139, 77.2090));
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,11 +57,15 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
         child: BlocBuilder<WeatherBloc, Welcome?>(
             builder: (context, weatherData) {
             if (weatherData == null) {
-              return Text('Loading...',
-                style: TextStyle(
-                  color: Colors.white54,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+              return AnimatedSwitcher(duration: Duration(
+                milliseconds: 500,
+              ),
+                child: weatherData != null ? Column(children: [],) : Text('Loading...',
+                  style: TextStyle(
+                    color: Colors.white54,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               );
             }
