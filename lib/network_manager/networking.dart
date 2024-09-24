@@ -6,7 +6,7 @@ class NetworkManager {
   final Dio _dio = Dio();
 
  Future<Welcome> fetchWeather(double latitude, double longitude) async {
-  final String url = 'https://api.open-meteo.com/v1/forecast?latitude=$latitude&longitude=$longitude&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m';
+  final String url = '';
   try {
     final response = await _dio.get(url);
     if (response.statusCode == 200) {
