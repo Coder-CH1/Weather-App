@@ -7,18 +7,15 @@ import 'package:weather_app/network_manager/model/weather_model.dart';
 class WeatherBloc extends Bloc<WeatherEvent, Welcome?> {
   final NetworkManager networkManager;
 
-  WeatherBloc(this.networkManager) : super(null);
-
-  @override
-
-  Stream<Welcome?> mapEventToState(WeatherEvent event) async* {
-    if (event is FetchWeather) {
+  WeatherBloc(this.networkManager) : super(null) {
+    on<FetchWeather>((event, emit) async {
       try {
-        final weather = await networkManager.fetchWeather(event.latitude, event.longitude);
-        yield weather;
+        final weather = await networkManager.fetchWeather(
+            event.latitude, event.longitude);
+        emit(weather);
       } catch (_) {
-        yield null;
+        emit(null);
       }
-    }
+    });
   }
 }

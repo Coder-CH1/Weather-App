@@ -46,8 +46,44 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
     return Scaffold(
       backgroundColor: Colors.blue,
       body: Center(
-
-    )
+        child: BlocBuilder<WeatherBloc, Welcome?>(
+            builder: (context, weatherData) {
+            if (weatherData == null) {
+              return CircularProgressIndicator();
+            }
+            return  Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('India',
+                style: TextStyle(
+                  color: Colors.white54,
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text('Current temperature:${weatherData.current.temperature2M}°C',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+                ),
+                SizedBox(
+                 height: 20,
+                ),
+                Text('Wind speed, ${weatherData.current.windSpeed10M}m/s',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                )
+              ],
+            );
+            }
+        ),
+      )
     );
   }
 }
