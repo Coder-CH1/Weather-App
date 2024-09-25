@@ -55,21 +55,20 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
             if (weatherData == null) {
               return AnimatedLoadingText();
             }
-            var tomorrowWeather = weatherData.daily.data[1];
             return  Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: 80,
-                        width: 80,
+                      height: 120,
+                        width: 120,
                         child: Image.asset('assets/icons/weather.png')),
                     Text('India',
                       style: TextStyle(
                         color: Colors.white54,
-                        fontSize: 32,
+                        fontSize: 50,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -78,7 +77,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 SizedBox(
                   height: 20,
                 ),
-                Text('Temperature tomorrow:${tomorrowWeather.temperature2M}°C',
+                Text('Temperature tomorrow:${weatherData.current.temperature2M}°C',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -87,7 +86,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 SizedBox(
                  height: 20,
                 ),
-                Text('Wind speed: ${tomorrowWeather.windSpeed10M}m/s',
+                Text('Wind speed: ${weatherData.current.windSpeed10M}m/s',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -96,7 +95,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 SizedBox(
                   height: 20,
                 ),
-                Text('Humidity: ${tomorrowWeather.relativeHumidity2M}%',
+                Text('Humidity: ${weatherData.hourly.relativeHumidity2M.first}%',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
