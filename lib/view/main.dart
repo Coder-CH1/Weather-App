@@ -51,7 +51,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
       body: Center(
         child: BlocBuilder<WeatherBloc, Welcome?>(
             builder: (context, weatherData) {
-            if (weatherData != null) {
+            if (weatherData == null) {
               return AnimatedLoadingText();
             }
             return  Column(
