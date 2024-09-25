@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:weather_app/view/main.dart';
 import 'package:weather_app/network_manager/model/weather_model.dart';
 
 class NetworkManager {

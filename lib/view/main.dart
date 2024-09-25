@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -40,12 +41,9 @@ class WeatherHomePage extends StatefulWidget {
 }
 
 class _WeatherHomePageState extends State<WeatherHomePage> {
-//late Box<Welcome> hive;
   @override
   void initState() {
     super.initState();
-     //hive = Hive.box<Welcome>('hive');
-     //context.read<WeatherBloc>().add(LoadSavedWeather());
      context.read<WeatherBloc>().add(FetchWeather(28.6139, 77.2090));
   }
 
