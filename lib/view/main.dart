@@ -57,12 +57,17 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
             return  Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('India',
-                style: TextStyle(
-                  color: Colors.white54,
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                ),
+                Row(
+                  children: [
+                    Image.asset('assets/images/eyeIcon.png'),
+                    Text('India',
+                      style: TextStyle(
+                        color: Colors.white54,
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: 20,
