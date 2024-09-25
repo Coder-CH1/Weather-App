@@ -1,16 +1,11 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:weather_app/network_manager/model/weather_model.dart';
 import 'package:weather_app/network_manager/networking.dart';
 import 'package:weather_app/state_management/weather_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/state_management/weather_event.dart';
-//import 'package:hive_flutter/hive_flutter.dart';
-
 
 void main() async {
-  //await Hive.initFlutter();
   runApp(const MyApp());
 }
 
@@ -106,7 +101,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
 }
 
 class AnimatedLoadingText extends StatefulWidget {
-  const AnimatedLoadingText({Key? key}) : super(key: key);
+  const AnimatedLoadingText({super.key});
 
   @override
   State<AnimatedLoadingText> createState() => _AnimatedLoadingTextState();
@@ -131,10 +126,11 @@ class _AnimatedLoadingTextState extends State<AnimatedLoadingText> with SingleTi
     super.dispose();
 
   }
+  @override
   Widget build(BuildContext context) {
     return FadeTransition(
-        opacity: _animation as Animation<double>,
-      child: Text('Loading',
+        opacity: _animation,
+      child: Text('Loading...',
       style: TextStyle(
         fontSize: 30,
         color: Colors.white70,
