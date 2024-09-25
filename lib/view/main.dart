@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:weather_app/network_manager/model/weather_model.dart';
 import 'package:weather_app/network_manager/networking.dart';
@@ -55,13 +57,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
         child: BlocBuilder<WeatherBloc, Welcome?>(
             builder: (context, weatherData) {
             if (weatherData == null) {
-              return Text('Loading...',
-                style: TextStyle(
-                  color: Colors.white54,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              );
+              return AnimatedLoadingText();
             }
             return  Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -105,6 +101,46 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
             }
         ),
       )
+    );
+  }
+}
+
+class AnimatedLoadingText extends StatefulWidget {
+  const AnimatedLoadingText({Key? key}) : super(key: key);
+
+  @override
+  State<AnimatedLoadingText> createState() => _AnimatedLoadingTextState();
+}
+
+class _AnimatedLoadingTextState extends State<AnimatedLoadingText> with SingleTickerProviderStateMixin{
+  late AnimationController _controller;
+  late Animation<double> _animation;
+  @override
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: Duration(seconds: 1),
+        vsync: this,
+    )..repeat(reverse: true);
+    _animation = Tween<double>(begin: 0.0, end: 2.0).animate(_controller);
+  }
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+
+  }
+  Widget build(BuildContext context) {
+    return FadeTransition(
+        opacity: _animation as Animation<double>,
+      child: Text('Loading',
+      style: TextStyle(
+        fontSize: 30,
+        color: Colors.white70,
+        fontWeight: FontWeight.bold,
+      ),
+      ),
     );
   }
 }
