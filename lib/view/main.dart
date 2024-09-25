@@ -55,15 +55,11 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
         child: BlocBuilder<WeatherBloc, Welcome?>(
             builder: (context, weatherData) {
             if (weatherData == null) {
-              return AnimatedSwitcher(duration: Duration(
-                milliseconds: 500,
-              ),
-                child: Text('Loading...',
-                  style: TextStyle(
-                    color: Colors.white54,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
+              return Text('Loading...',
+                style: TextStyle(
+                  color: Colors.white54,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
                 ),
               );
             }
