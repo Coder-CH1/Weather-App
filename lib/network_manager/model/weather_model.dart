@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+//Model Data
 Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
 
 String welcomeToJson(Welcome data) => json.encode(data.toJson());

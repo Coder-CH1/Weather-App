@@ -5,6 +5,7 @@ import 'package:weather_app/state_management/weather_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/state_management/weather_event.dart';
 
+//App Initialization
 void main() async {
   runApp(const MyApp());
 }
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
+//THE UI
 class WeatherHomePage extends StatefulWidget {
   const WeatherHomePage({super.key});
 
@@ -54,6 +55,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
             if (weatherData == null) {
               return AnimatedLoadingText();
             }
+            var tomorrowWeather = weatherData.daily.data[0];
             return  Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -76,7 +78,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 SizedBox(
                   height: 20,
                 ),
-                Text('Temperature tomorrow:${weatherData.daily.data[0].temperature2M}°C',
+                Text('Temperature tomorrow:${tomorrowWeather.temperature2M}°C',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -85,7 +87,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 SizedBox(
                  height: 20,
                 ),
-                Text('Wind speed: ${weatherData.daily.data[0].windSpeed10M}m/s',
+                Text('Wind speed: ${tomorrowWeather.windSpeed10M}m/s',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -94,7 +96,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 SizedBox(
                   height: 20,
                 ),
-                Text('Humidity: ${weatherData.daily.data[0].relativeHumidity2M}%',
+                Text('Humidity: ${tomorrowWeather.relativeHumidity2M}%',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -109,6 +111,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
   }
 }
 
+//ANIMATED TEXT
 class AnimatedLoadingText extends StatefulWidget {
   const AnimatedLoadingText({super.key});
 

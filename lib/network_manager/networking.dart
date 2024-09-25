@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:weather_app/network_manager/model/weather_model.dart';
 
+//Network Request
 class NetworkManager {
   final Dio _dio = Dio();
 
