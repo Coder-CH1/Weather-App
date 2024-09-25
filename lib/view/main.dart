@@ -58,7 +58,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
               return AnimatedSwitcher(duration: Duration(
                 milliseconds: 500,
               ),
-                child: weatherData != null ? Column(children: [],) : Text('Loading...',
+                child: Text('Loading...',
                   style: TextStyle(
                     color: Colors.white54,
                     fontSize: 24,
