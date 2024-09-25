@@ -11,7 +11,6 @@
 ### Technologies Used:
 
  - Flutter 
- - Hive (local storage)
  - Bloc (State Management)
  - Dio (Network Requests)
  - Flutter built-in animation.
