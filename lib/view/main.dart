@@ -76,7 +76,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 SizedBox(
                   height: 20,
                 ),
-                Text('Temperature tomorrow:${weatherData?.daily.temperature2M}°C',
+                Text('Temperature tomorrow:${weatherData.daily.data[1].temperature2M}°C',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -85,7 +85,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 SizedBox(
                  height: 20,
                 ),
-                Text('Wind speed: ${weatherData?.daily.windSpeed10M}m/s',
+                Text('Wind speed: ${weatherData.daily.data[1].windSpeed10M}m/s',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -94,7 +94,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 SizedBox(
                   height: 20,
                 ),
-                Text('Humidity: ${weatherData?.daily.relativeHumidity2M}%',
+                Text('Humidity: ${weatherData.daily.data[1].relativeHumidity2M}%',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,

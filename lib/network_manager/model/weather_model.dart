@@ -81,19 +81,32 @@ class Hourly {
 }
 
 class Daily {
+  List<DailyData> data;
+  Daily({required this.data});
+
+  factory Daily.fromJson(Map<String, dynamic> json) => Daily(
+      data:
+      List<DailyData>.from(json['daily'].map((x) => DailyData.fromJson(x))),
+  );
+  Map<String, dynamic> toJson() => {
+    'daily': List<dynamic>.from(data.map((x) => x.toJson())),
+  };
+}
+
+class DailyData {
   String date;
   double temperature2M;
   double windSpeed10M;
   int relativeHumidity2M;
   
-  Daily({
+  DailyData({
     required this.date,
     required this.temperature2M,
     required this.windSpeed10M,
     required this.relativeHumidity2M,
 });
   
-  factory Daily.fromJson(Map<String, dynamic> json) => Daily(
+  factory DailyData.fromJson(Map<String, dynamic> json) => DailyData(
       date: json['date'], 
       temperature2M: json['temperature_2m'].toDouble(),
       windSpeed10M: json['windSpeed_10m'].toDouble(),
