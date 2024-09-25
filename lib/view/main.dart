@@ -5,7 +5,7 @@ import 'package:weather_app/state_management/weather_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/state_management/weather_event.dart';
 
-//App Initialization
+//APP INITIALIZATION
 void main() async {
   runApp(const MyApp());
 }
