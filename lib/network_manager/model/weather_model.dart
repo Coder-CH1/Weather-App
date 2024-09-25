@@ -7,20 +7,24 @@ String welcomeToJson(Welcome data) => json.encode(data.toJson());
 class Welcome {
   Current current;
   Hourly hourly;
+  Daily daily;
 
   Welcome({
     required this.current,
     required this.hourly,
+    required this.daily
   });
 
   factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
     current: Current.fromJson(json["current"]),
     hourly: Hourly.fromJson(json["hourly"]),
+    daily: Daily.fromJson(json['daily']),
   );
 
   Map<String, dynamic> toJson() => {
     "current": current.toJson(),
     "hourly": hourly.toJson(),
+    'daily': daily.toJson(),
   };
 }
 
@@ -73,5 +77,32 @@ class Hourly {
     "wind_speed_10m": List<dynamic>.from(windSpeed10M.map((x) => x)),
     "temperature_2m": List<dynamic>.from(temperature2M.map((x) => x)),
     "relative_humidity_2m": List<dynamic>.from(relativeHumidity2M.map((x) => x)),
+  };
+}
+
+class Daily {
+  String date;
+  double temperature2M;
+  double windSpeed10M;
+  int relativeHumidity2M;
+  
+  Daily({
+    required this.date,
+    required this.temperature2M,
+    required this.windSpeed10M,
+    required this.relativeHumidity2M,
+});
+  
+  factory Daily.fromJson(Map<String, dynamic> json) => Daily(
+      date: json['date'], 
+      temperature2M: json['temperature_2m'].toDouble(),
+      windSpeed10M: json['windSpeed_10m'].toDouble(),
+      relativeHumidity2M: json['relativeHumidity_2m']);
+  
+  Map<String, dynamic> toJson() => {
+    'date': date,
+    'temperature_2m': temperature2M,
+    'windSpeed_10m': windSpeed10M,
+    'relativeHumidity_2m': relativeHumidity2M,
   };
 }
