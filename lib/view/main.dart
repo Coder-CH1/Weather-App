@@ -51,15 +51,19 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
       body: Center(
         child: BlocBuilder<WeatherBloc, Welcome?>(
             builder: (context, weatherData) {
-            if (weatherData == null) {
+            if (weatherData != null) {
               return AnimatedLoadingText();
             }
             return  Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Image.asset('assets/images/eyeIcon.png'),
+                    SizedBox(
+                      height: 80,
+                        width: 80,
+                        child: Image.asset('assets/icons/weather.png')),
                     Text('India',
                       style: TextStyle(
                         color: Colors.white54,
@@ -72,7 +76,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 SizedBox(
                   height: 20,
                 ),
-                Text('Temperature tomorrow:${weatherData.daily.temperature2M}°C',
+                Text('Temperature tomorrow:${weatherData?.daily.temperature2M}°C',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -81,7 +85,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 SizedBox(
                  height: 20,
                 ),
-                Text('Wind speed: ${weatherData.daily.windSpeed10M}m/s',
+                Text('Wind speed: ${weatherData?.daily.windSpeed10M}m/s',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -90,7 +94,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 SizedBox(
                   height: 20,
                 ),
-                Text('Humidity: ${weatherData.daily.relativeHumidity2M}%',
+                Text('Humidity: ${weatherData?.daily.relativeHumidity2M}%',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
