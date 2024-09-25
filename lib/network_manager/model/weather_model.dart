@@ -95,28 +95,28 @@ class Daily {
 }
 
 class DailyData {
-  String date;
+  String time;
   double temperature2M;
   double windSpeed10M;
   int relativeHumidity2M;
   
   DailyData({
-    required this.date,
+    required this.time,
     required this.temperature2M,
     required this.windSpeed10M,
     required this.relativeHumidity2M,
 });
   
   factory DailyData.fromJson(Map<String, dynamic> json) => DailyData(
-      date: json['date'], 
+      time: json['time'],
       temperature2M: json['temperature_2m'].toDouble(),
       windSpeed10M: json['windSpeed_10m'].toDouble(),
-      relativeHumidity2M: json['relativeHumidity_2m']);
+      relativeHumidity2M: json['relative_humidity_2m']);
   
   Map<String, dynamic> toJson() => {
-    'date': date,
+    'time': time,
     'temperature_2m': temperature2M,
     'windSpeed_10m': windSpeed10M,
-    'relativeHumidity_2m': relativeHumidity2M,
+    'relative_humidity_2m': relativeHumidity2M,
   };
 }

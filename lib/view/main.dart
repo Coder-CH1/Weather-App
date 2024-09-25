@@ -55,7 +55,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
             if (weatherData == null) {
               return AnimatedLoadingText();
             }
-            var tomorrowWeather = weatherData.daily.data[0];
+            var tomorrowWeather = weatherData.daily.data[1];
             return  Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
