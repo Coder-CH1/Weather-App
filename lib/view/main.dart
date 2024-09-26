@@ -48,7 +48,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.blueAccent,
       body: Center(
         child: BlocBuilder<WeatherBloc, Welcome?>(
             builder: (context, weatherData) {
