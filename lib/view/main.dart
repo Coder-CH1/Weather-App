@@ -12,6 +12,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final appDocumentDirectory = await getApplicationDocumentsDirectory();
   Hive.init(appDocumentDirectory.path);
+
+  //final weatherBox = await Hive.openBox<Welcome>('weather')
   runApp(const MyApp());
 }
 

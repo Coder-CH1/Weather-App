@@ -1,12 +1,17 @@
 import 'dart:convert';
+import 'package:hive/hive.dart';
+//part 'weather_model.g.dart';
 
 //MODEL DATA
 Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
 
 String welcomeToJson(Welcome data) => json.encode(data.toJson());
 
+@HiveType(typeId: 0)
 class Welcome {
+  @HiveField(0)
   Current current;
+  @HiveField(1)
   Hourly hourly;
 
   Welcome({
@@ -25,9 +30,13 @@ class Welcome {
   };
 }
 
+@HiveType(typeId: 0)
 class Current {
+  @HiveField(0)
   String time;
+  @HiveField(1)
   double temperature2M;
+  @HiveField(2)
   double windSpeed10M;
 
   Current({
@@ -49,10 +58,15 @@ class Current {
   };
 }
 
+@HiveType(typeId: 0)
 class Hourly {
+  @HiveField(0)
   List<String> time;
+  @HiveField(1)
   List<double> windSpeed10M;
+  @HiveField(2)
   List<double> temperature2M;
+  @HiveField(3)
   List<int> relativeHumidity2M;
 
   Hourly({
