@@ -67,7 +67,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                         child: Image.asset('assets/icons/weather.png')),
                     Text('India',
                       style: TextStyle(
-                        color: Colors.white54,
+                        color: Colors.yellowAccent,
                         fontSize: 50,
                         fontWeight: FontWeight.bold,
                       ),
@@ -81,6 +81,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
                 ),
                 SizedBox(
@@ -90,6 +91,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(
@@ -99,6 +101,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ],
