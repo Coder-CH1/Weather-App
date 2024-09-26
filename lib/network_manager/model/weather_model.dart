@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:hive/hive.dart';
-//part 'weather_model.g.dart';
 
 //MODEL DATA
 Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
