@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:weather_app/network_manager/model/weather_model.dart';
 import 'package:weather_app/network_manager/networking.dart';
 import 'package:weather_app/state_management/weather_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/state_management/weather_event.dart';
+import 'package:path_provider/path_provider.dart';
 
 //APP INITIALIZATION
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final appDocumentDirectory = await getApplicationDocumentsDirectory();
+  Hive.init(appDocumentDirectory.path);
   runApp(const MyApp());
 }
 
