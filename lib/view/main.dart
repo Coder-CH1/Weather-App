@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:weather_app/network_manager/model/weather_model.dart';
 import 'package:weather_app/network_manager/networking.dart';
 import 'package:weather_app/state_management/weather_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/state_management/weather_event.dart';
-import 'package:path_provider/path_provider.dart';
 
 //APP INITIALIZATION
 void main() async {
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       ),
       home: BlocProvider(
        create: (context) => WeatherBloc(NetworkManager()),
-        child: WeatherHomePage(),
+        child: const WeatherHomePage(),
       ),
     );
   }
@@ -58,7 +58,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
         child: BlocBuilder<WeatherBloc, Welcome?>(
             builder: (context, weatherData) {
             if (weatherData == null) {
-              return AnimatedLoadingText();
+              return const AnimatedLoadingText();
             }
             return  Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -70,7 +70,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                       height: 120,
                         width: 120,
                         child: Image.asset('assets/icons/weather.png')),
-                    Text('India',
+                    const Text('India',
                       style: TextStyle(
                         color: Colors.yellowAccent,
                         fontSize: 50,
@@ -79,31 +79,31 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Text('Temperature tomorrow:${weatherData.current.temperature2M}°C',
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
                 ),
-                SizedBox(
+                const SizedBox(
                  height: 20,
                 ),
                 Text('Wind speed: ${weatherData.current.windSpeed10M}m/s',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Text('Humidity: ${weatherData.hourly.relativeHumidity2M.first}%',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -134,7 +134,7 @@ class _AnimatedLoadingTextState extends State<AnimatedLoadingText> with SingleTi
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: Duration(seconds: 1),
+      duration: const Duration(seconds: 1),
         vsync: this,
     )..repeat(reverse: true);
     _animation = Tween<double>(begin: 0.0, end: 2.0).animate(_controller);
@@ -149,7 +149,7 @@ class _AnimatedLoadingTextState extends State<AnimatedLoadingText> with SingleTi
   Widget build(BuildContext context) {
     return FadeTransition(
         opacity: _animation,
-      child: Text('Loading...',
+      child: const Text('Loading...',
       style: TextStyle(
         fontSize: 30,
         color: Colors.white70,
