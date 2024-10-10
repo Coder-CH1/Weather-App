@@ -1,14 +1,14 @@
-# Weather-App
+## Weather-App
 
 
  - A Flutter-based weather application displaying current weather conditions.
 
-# Features:
+## Features:
 
  - Current temperature and humidity. 
  - Weather description.
 
-# Technologies Used:
+## Technologies Used:
 
  - Flutter 
  - Bloc (State Management)
