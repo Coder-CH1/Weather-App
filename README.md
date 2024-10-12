@@ -3,10 +3,14 @@
 
  - A Flutter-based weather application displaying current weather conditions.
 
+#
+
 # Features:
 
  - Current temperature and humidity. 
  - Weather description.
+
+#
 
 # Technologies Used:
 
