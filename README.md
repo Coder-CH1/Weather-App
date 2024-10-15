@@ -19,7 +19,6 @@
  - Dio (Network Requests)
  - Flutter built-in animation.
 
-#
 
 
 ![Simulator Screen Shot - iPhone 14 Pro - 2024-09-26 at 08 25 33](https://github.com/user-attachments/assets/d8422014-59f6-4a1d-a07b-ca678d47519b)
