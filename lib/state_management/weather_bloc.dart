@@ -3,7 +3,7 @@ import 'weather_event.dart';
 import 'package:weather_app/network_manager/networking.dart';
 import 'package:weather_app/network_manager/model/weather_model.dart';
 
-//BLOC STATE MANAGEMENT
+/// BLOC STATE MANAGEMENT
 class WeatherBloc extends Bloc<WeatherEvent, Welcome?> {
   final NetworkManager networkManager;
 

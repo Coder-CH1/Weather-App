@@ -7,7 +7,7 @@ import 'package:weather_app/state_management/weather_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/state_management/weather_event.dart';
 
-//APP INITIALIZATION
+/// APP INITIALIZATION
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final appDocumentDirectory = await getApplicationDocumentsDirectory();
@@ -22,11 +22,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
       home: BlocProvider(
        create: (context) => WeatherBloc(NetworkManager()),
         child: const WeatherHomePage(),
@@ -35,7 +30,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-//THE UI
+/// THE UI
 class WeatherHomePage extends StatefulWidget {
   const WeatherHomePage({super.key});
 
@@ -118,7 +113,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
   }
 }
 
-//ANIMATED TEXT
+/// ANIMATED TEXT
 class AnimatedLoadingText extends StatefulWidget {
   const AnimatedLoadingText({super.key});
 

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:hive/hive.dart';
 
-//MODEL DATA
+/// MODEL DATA
 Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
 
 String welcomeToJson(Welcome data) => json.encode(data.toJson());

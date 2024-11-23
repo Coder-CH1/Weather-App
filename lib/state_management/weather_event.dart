@@ -1,4 +1,4 @@
-//BLOC STATE MANAGEMENT EVENT
+/// BLOC STATE MANAGEMENT EVENT
 abstract class WeatherEvent{}
 
 class FetchWeather extends WeatherEvent {
