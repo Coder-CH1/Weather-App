@@ -134,6 +134,7 @@ class _AnimatedLoadingTextState extends State<AnimatedLoadingText> with SingleTi
     )..repeat(reverse: true);
     _animation = Tween<double>(begin: 0.0, end: 2.0).animate(_controller);
   }
+ /// DISPOSE THE CONTROLLER
   @override
   void dispose() {
     _controller.dispose();
